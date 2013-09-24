@@ -13,3 +13,20 @@ while (even  < maximum) {
     even <- odd1 + odd2
 }    
 print(suma)
+
+otherfib <- function(a, b, max) {
+    out <- numeric(0)
+    while (a <= max && b <= max) {
+        out <- c(out, a, b)
+        a <- a + b
+        b <- b + a
+    }
+    now <- c()
+    for (i in out) {
+        if ((i %% 2)  == 0) {
+            now <- append(now, i)
+        }
+    }
+    print(sum(now))
+}
+otherfib(1, 2, 4000000)
