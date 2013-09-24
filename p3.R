@@ -2,7 +2,7 @@
 ## largest prime factor of the number 600851475143
 
 PrimeFac <- function(number) {
-    if (number > 1e15) stop ("number is too large")
+    if (number > 3e13) stop ("number is too large")
     largest.factor <- c(0)
     max.factor <- number%/%sqrt(number)
     while (largest.factor < number) {
@@ -19,4 +19,4 @@ PrimeFac <- function(number) {
     }
     print(largest.factor)
 }
-PrimeFac(644658)
+PrimeFac(29454566644658)
