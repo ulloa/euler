@@ -21,17 +21,28 @@ var prime = function(low, top) {
 var factory = function(temp) {
     var time = [];
     var ll = 10000;
-    while (ll < temp) {
-	var list = prime(ll - 9998, ll);
-	for (ii = ll-10000; ii < ll; ii ++) {
+    if (temp > ll) {
+	while (ll < temp) {
+	    var list = prime(ll - 9998, ll);
+	    for (ii = ll-10000; ii < ll; ii ++) {
 		if ((temp % list[ii]) === 0) {
 		    time.push(list[ii]);
 		    temp = temp/list[ii];
 		}
+	    }
+	    ll += 10000;
 	}
-	ll += 10000;
+	return(time);
+    } else {
+	var list = prime(2, ll);
+	for (ii = 0; ii < ll; ii ++) {
+	    if ((temp % list[ii]) === 0) {
+		time.push(list[ii]);
+		temp = temp/list[ii];
+		}
+	}
+	return(time);
     }
-    return(time);
 };
 
-console.log(factory(559979));
+console.log(factory(97));
